@@ -14,6 +14,52 @@ header p{max-width:40%;font-size:17px}
 header .tag{max-width:42%;font-size:13px;background:#fffdf2e8;margin-top:16px}
 @media(max-width:599px){header{min-height:430px;padding:24px 20px;background-size:auto 260px;background-position:right bottom;background-repeat:no-repeat}header h1{max-width:100%;font-size:32px}header p{max-width:100%;font-size:16px}header .tag{max-width:100%;margin-top:12px}}
 </style>
+<style id="travel-editorial-style">
+:root{--ink:#253e36;--muted:#596b62;--accent:#a3492b;--paper:#fffdf7;--line:#dcded0}
+body{background:#f7f5ec;line-height:1.85}
+main{max-width:1120px;padding:32px 28px 64px}
+header{min-height:460px;padding:60px 40px;border-radius:8px;background-size:cover;background-position:center;box-shadow:0 16px 48px #3143370a}
+header h1{max-width:42%;font-family:"Microsoft JhengHei",sans-serif;font-size:clamp(38px,4.6vw,58px);font-weight:800;letter-spacing:.08em;line-height:1.4;margin-bottom:24px}
+header p{max-width:36%;font-size:18px;line-height:1.9}
+header .tag{max-width:38%;font-size:13px;border:1px solid #d7d5c5;border-radius:3px;padding:8px 12px;background:#fffdf3eb}
+nav{gap:0;margin:32px 0 60px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+nav a{border:0;border-radius:0;background:transparent;padding:19px;letter-spacing:.16em;transition:background .2s,color .2s}
+nav a+ a{border-left:1px solid var(--line)}nav a:hover{background:#e5eddf;color:#244e3d}
+section{margin:56px auto 0;max-width:860px;scroll-margin-top:24px}
+h2{font-size:34px;letter-spacing:.12em;padding-bottom:12px;border-bottom:2px solid var(--ink);font-weight:750}
+.intro{margin:16px 0 28px;font-size:17px;letter-spacing:.03em}
+ol{gap:0}
+li{display:grid;grid-template-columns:86px minmax(0,1fr);column-gap:28px;row-gap:8px;padding:28px 12px;background:transparent;border:0;border-bottom:1px solid var(--line);border-radius:0}
+time{grid-column:1;grid-row:1 / span 2;font-size:20px;font-weight:700;letter-spacing:.03em;padding-top:3px}
+h3{grid-column:2;font-size:23px;font-weight:700;line-height:1.6;margin:0}
+li p{grid-column:2;font-size:18px;line-height:1.8}
+#day1 li{position:relative;padding-left:0}
+#day1 time{border-right:2px solid #b8cbb9;align-self:stretch}
+#day2{padding:28px;background:#edf1e7;border-radius:8px}
+#day2 h2{color:#315741;border-color:#315741}
+footer{max-width:860px;margin:56px auto 0;padding-top:24px;font-size:15px;line-height:1.8}
+main>p{max-width:860px;margin:24px auto;font-size:20px;font-weight:700;color:#315741}
+main>img{padding:14px;border:1px solid var(--line);background:white;border-radius:8px}
+@media(max-width:599px){main{padding:16px 16px 40px}header{min-height:490px;padding:28px 22px;background-size:auto 285px;background-position:right bottom;background-repeat:no-repeat}header h1{max-width:100%;font-size:34px;margin-bottom:12px;letter-spacing:.04em}header p{max-width:100%;font-size:17px}header .tag{max-width:100%;font-size:12px;margin-top:14px;padding:5px 8px}nav{margin:24px 0 38px}nav a{padding:15px;font-size:17px}section{margin-top:38px}h2{font-size:28px}.intro{font-size:16px;margin-bottom:18px}li{grid-template-columns:62px minmax(0,1fr);column-gap:16px;padding:24px 0}time{font-size:17px}h3{font-size:20px}li p{font-size:17px}#day2{padding:20px 16px}footer{margin-top:36px}}
+@media(prefers-reduced-motion:reduce){nav a{transition:none}}
+</style>
+<style id="romantic-background-style">
+body{background:linear-gradient(145deg,#fff2f0 0%,#faf1ed 45%,#f4e9f0 100%)}
+nav a:hover{background:#f3e1e7}
+#day2{background:#f5e5e9}
+</style>
+<style>
+.day-filters{display:flex;gap:8px;flex-wrap:wrap;margin:22px auto 32px;max-width:860px}
+.day-filters button{font:inherit;font-size:17px;padding:10px 18px;border:1px solid #ceb9c1;border-radius:999px;background:#fffaf9;color:var(--ink);cursor:pointer}
+.day-filters button[aria-pressed="true"]{background:#724954;color:white;border-color:#724954}
+.day-filters button:focus-visible,.trip-check input:focus-visible{outline:3px solid #a3492b;outline-offset:4px}
+.trip-check{display:flex;align-items:flex-start;gap:10px;cursor:pointer}
+.trip-check input{flex:none;width:21px;height:21px;margin:6px 0 0;accent-color:#724954;cursor:pointer}
+.trip-check span{min-width:0}
+li.is-complete h3 .trip-place{text-decoration:line-through;text-decoration-color:#986a77;color:#66726a}
+section[hidden]{display:none!important}
+.storage-notice{max-width:860px;margin:12px auto;color:#724954;font-size:15px}
+</style>
 </head>
 <body>
 <main>
@@ -39,5 +85,26 @@ header .tag{max-width:42%;font-size:13px;background:#fffdf2e8;margin-top:16px}
 <p>集合地點：台北車站</p>
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbwAAAG8AQAAAACNyy1yAAAC9ElEQVR4nO2cbbKrIAyGE+b8hx3c/S/r7kBWkDskgPQr1d5jrfZ9pmPVkql9zcQQoCz0Ejm8ZkcEQweI4wBxHCCOA8RxgDgOEMcB4jhAnA3F4U4ie1Hmcj7pR+miwa9843rCCzYKDM8hzk99j5O9FwfNLJkpCsdJiOS2wT6XGmD4mO8Sh1vMFJEaV7Oese3QYPdLXUlYa9CA4aeLw8wykVgczcx/5GMvdRlhYbsbYPiROcBAe+gL5VQe/ZnvOSvuowPE2dZXpe8VFxXKSaKw9rCuG/zXNwYYPgbieIgyH0e5/+pENZigqgPE2TCuytXpHk5bAnCTBuB2OECcLeNqLM5o/anaq4oWP+tO2VqHC3H1OfDVDX1VNA0o3miY0465QfNe+OoCwpJG94Dhsr5VThyF9XE/d6ioHepYgH2qQFUHiLPlGGuyIlWprJb6qoZWTjouwGUMy5rVYYLf+Mb1hBdsFBierg4QW3Y6XSQDMj/3W7KKOsB5HCAcsm8VaweqbpXqrr2HhZrV2RwgHK9mlcvo/zA1hUqaGic7rNs2fWWnSw0w/G5xfuZddUXJySZZUU4ljF74p36626UGGH63OHRRpNJn/Xx+oqv61ZDHHug3BhierL4qY3G1DQ3Mfas28wq+ei4HCIfLAThOpbiqCaoMQ6vc2mmJtTTY71IDDL9bHBrHrXpnfwy2ZAlALxQgB3jOgRwgHM8w14J/HxSgtt7KZl/3M/tf6mrCehMDhp+arzbGUioNcwCqAeauPAdO/qZ1rIZYx+pvOdcD7Ly2BbfDA766pTixBVVbY9UzgZ7BXtRZcTt84Kubz1+lNszaO1Ni+wb6VksJi1teAcN1awO5z/3LtTOlg1nJClmtbAVVHSDOu8SJJaKyTgi0oGrLrocJgbgdPvDVN61jFQ2nogta54UBNg17Xn+N2+EAcbatrxo1irb/WqkVAD28XNKC2+EAcbYQh/FfwY+ByzlAHAeI4wBxHCCOA8RxgDgOEMfhQOL8A+YR9wMvsoJ8AAAAAElFTkSuQmCC" alt="台南兩天一夜網站 QR 碼" width="444" height="444" style="display:block;width:240px;max-width:100%;height:auto;margin:20px auto;">
 </main>
+<script id="trip-interactions">
+(function(){
+'use strict';
+const key='tainan-trip-progress-v1';
+let state={day:'all',checked:{}};
+let storageAvailable=true;
+try{const saved=JSON.parse(localStorage.getItem(key));if(saved&&typeof saved==='object'){if(['all','day1','day2'].includes(saved.day))state.day=saved.day;if(saved.checked&&typeof saved.checked==='object'&&!Array.isArray(saved.checked))state.checked=saved.checked;}}catch(e){storageAvailable=false;}
+const nav=document.querySelector('nav');
+const controls=document.createElement('div');
+controls.className='day-filters';controls.setAttribute('role','group');controls.setAttribute('aria-label','選擇要看的行程');
+const notice=document.createElement('p');notice.className='storage-notice';notice.setAttribute('role','status');notice.hidden=true;
+notice.textContent='此瀏覽器目前無法儲存勾選，重新整理後可能不會保留。';
+nav.insertAdjacentElement('afterend',controls);controls.insertAdjacentElement('afterend',notice);
+function save(){try{localStorage.setItem(key,JSON.stringify(state));}catch(e){storageAvailable=false;notice.hidden=false;}}
+function showDay(day){state.day=day;['day1','day2'].forEach(id=>{document.getElementById(id).hidden=day!=='all'&&day!==id;});controls.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.day===day)));}
+[['all','全部'],['day1','第一天'],['day2','第二天']].forEach(([day,text])=>{const button=document.createElement('button');button.type='button';button.dataset.day=day;button.textContent=text;button.addEventListener('click',()=>{showDay(day);save();});controls.appendChild(button);});
+['day1','day2'].forEach(day=>{document.querySelectorAll('#'+day+' li').forEach((item,index)=>{const h=item.querySelector('h3');if(!h)return;const id=day+'-stop-'+(index+1);const label=document.createElement('label');label.className='trip-check';const checkbox=document.createElement('input');checkbox.type='checkbox';checkbox.checked=state.checked[id]===true;const place=document.createElement('span');place.className='trip-place';while(h.firstChild)place.appendChild(h.firstChild);label.append(checkbox,place);h.appendChild(label);item.classList.toggle('is-complete',checkbox.checked);checkbox.addEventListener('change',()=>{state.checked[id]=checkbox.checked;item.classList.toggle('is-complete',checkbox.checked);save();});});});
+nav.querySelectorAll('a[href="#day1"],a[href="#day2"]').forEach(a=>a.addEventListener('click',()=>{showDay(a.getAttribute('href').slice(1));save();}));
+showDay(state.day);if(!storageAvailable)notice.hidden=false;
+})();
+</script>
 </body>
 </html>
