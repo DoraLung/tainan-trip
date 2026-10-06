@@ -60,6 +60,9 @@ li.is-complete h3 .trip-place{text-decoration:line-through;text-decoration-color
 section[hidden]{display:none!important}
 .storage-notice{max-width:860px;margin:12px auto;color:#724954;font-size:15px}
 </style>
+<style>
+#trip-poll{background:#fffaf9;border:1px solid #e5ccd5;padding:24px;border-radius:18px}#poll-form fieldset{border:0;padding:0;margin:0 0 20px}#poll-form legend{font-size:15px;color:var(--muted);margin-bottom:14px}#poll-form label{display:flex;align-items:center;gap:10px;padding:12px 0;cursor:pointer}#poll-form input{width:20px;height:20px;flex:none;accent-color:#724954}#trip-poll button{font:inherit;padding:10px 20px;border:1px solid #724954;border-radius:12px;cursor:pointer;background:#724954;color:white}#trip-poll button:disabled{opacity:.6;cursor:default}#poll-refresh{margin-top:18px;background:transparent!important;color:#724954!important}.poll-result{margin:14px 0}.poll-result p{margin:0;font-size:16px}.poll-result progress{width:100%;height:12px;accent-color:#a77084}.poll-note{font-size:14px;color:var(--muted)}#poll-message{color:#724954}#trip-poll :focus-visible{outline:3px solid #a3492b;outline-offset:3px}
+</style>
 </head>
 <body>
 <main>
@@ -81,6 +84,21 @@ section[hidden]{display:none!important}
 <li><time datetime="13:00">13:00</time><h3><span aria-hidden="true" style="display:inline-block;font-size:1em;line-height:1;vertical-align:baseline;margin-right:0.35em;">🍜</span>文章牛肉湯</h3><p>用一頓滿足的午餐收尾，再聊聊這趟最喜歡的片刻。</p></li>
 <li><time datetime="15:00">15:00</time><h3><span aria-hidden="true" style="display:inline-block;font-size:1em;line-height:1;vertical-align:baseline;margin-right:0.35em;">🚶</span>台南車站・準備返程</h3><p>預留交通與集合時間，帶著兩天的回憶回家。</p></li>
 </ol></section>
+<section id="trip-poll" aria-labelledby="poll-title">
+<h2 id="poll-title">最想去的店</h2>
+<p class="intro">選一家最期待的店，看看朋友們的選擇。</p>
+<form id="poll-form"><label for="poll-nickname">暱稱 <input id="poll-nickname" name="nickname" type="text" maxlength="30" autocomplete="nickname" required style="width:min(220px,60%);height:auto;padding:8px;border:1px solid #ceb9c1;border-radius:8px;font:inherit;"></label><fieldset><legend>每個瀏覽器限投一票，送出後不能更改。</legend>
+<label><input type="radio" name="shop" value="1" required> 阿堂鹹粥</label>
+<label><input type="radio" name="shop" value="2"> 蜷尾家・甘味处散步甜食</label>
+<label><input type="radio" name="shop" value="3"> 度小月擔仔麵（中正旗艦店）</label>
+<label><input type="radio" name="shop" value="4"> 早安有喜（安平文平店）</label>
+<label><input type="radio" name="shop" value="5"> 文章牛肉湯</label>
+</fieldset><button type="submit" id="poll-submit">送出投票</button></form>
+<p id="poll-message" role="status" aria-live="polite"></p>
+<div id="poll-results" aria-label="共同投票結果"></div>
+<button type="button" id="poll-refresh">更新票數</button>
+<p class="poll-note">更換瀏覽器或清除紀錄可能再次投票，這是朋友間的簡易投票。</p>
+</section>
 <footer>出發前再更新實際店名、營業時間與交通安排；目前所有時間皆為示意，可依大家的步調調整。</footer>
 <p>集合地點：台北車站</p>
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbwAAAG8AQAAAACNyy1yAAAC9ElEQVR4nO2cbbKrIAyGE+b8hx3c/S/r7kBWkDskgPQr1d5jrfZ9pmPVkql9zcQQoCz0Ejm8ZkcEQweI4wBxHCCOA8RxgDgOEMcB4jhAnA3F4U4ie1Hmcj7pR+miwa9843rCCzYKDM8hzk99j5O9FwfNLJkpCsdJiOS2wT6XGmD4mO8Sh1vMFJEaV7Oese3QYPdLXUlYa9CA4aeLw8wykVgczcx/5GMvdRlhYbsbYPiROcBAe+gL5VQe/ZnvOSvuowPE2dZXpe8VFxXKSaKw9rCuG/zXNwYYPgbieIgyH0e5/+pENZigqgPE2TCuytXpHk5bAnCTBuB2OECcLeNqLM5o/anaq4oWP+tO2VqHC3H1OfDVDX1VNA0o3miY0465QfNe+OoCwpJG94Dhsr5VThyF9XE/d6ioHepYgH2qQFUHiLPlGGuyIlWprJb6qoZWTjouwGUMy5rVYYLf+Mb1hBdsFBierg4QW3Y6XSQDMj/3W7KKOsB5HCAcsm8VaweqbpXqrr2HhZrV2RwgHK9mlcvo/zA1hUqaGic7rNs2fWWnSw0w/G5xfuZddUXJySZZUU4ljF74p36626UGGH63OHRRpNJn/Xx+oqv61ZDHHug3BhierL4qY3G1DQ3Mfas28wq+ei4HCIfLAThOpbiqCaoMQ6vc2mmJtTTY71IDDL9bHBrHrXpnfwy2ZAlALxQgB3jOgRwgHM8w14J/HxSgtt7KZl/3M/tf6mrCehMDhp+arzbGUioNcwCqAeauPAdO/qZ1rIZYx+pvOdcD7Ly2BbfDA766pTixBVVbY9UzgZ7BXtRZcTt84Kubz1+lNszaO1Ni+wb6VksJi1teAcN1awO5z/3LtTOlg1nJClmtbAVVHSDOu8SJJaKyTgi0oGrLrocJgbgdPvDVN61jFQ2nogta54UBNg17Xn+N2+EAcbatrxo1irb/WqkVAD28XNKC2+EAcbYQh/FfwY+ByzlAHAeI4wBxHCCOA8RxgDgOEMfhQOL8A+YR9wMvsoJ8AAAAAElFTkSuQmCC" alt="台南兩天一夜網站 QR 碼" width="444" height="444" style="display:block;width:240px;max-width:100%;height:auto;margin:20px auto;">
@@ -104,6 +122,22 @@ function showDay(day){state.day=day;['day1','day2'].forEach(id=>{document.getEle
 ['day1','day2'].forEach(day=>{document.querySelectorAll('#'+day+' li').forEach((item,index)=>{const h=item.querySelector('h3');if(!h)return;const id=day+'-stop-'+(index+1);const label=document.createElement('label');label.className='trip-check';const checkbox=document.createElement('input');checkbox.type='checkbox';checkbox.checked=state.checked[id]===true;const place=document.createElement('span');place.className='trip-place';while(h.firstChild)place.appendChild(h.firstChild);label.append(checkbox,place);h.appendChild(label);item.classList.toggle('is-complete',checkbox.checked);checkbox.addEventListener('change',()=>{state.checked[id]=checkbox.checked;item.classList.toggle('is-complete',checkbox.checked);save();});});});
 nav.querySelectorAll('a[href="#day1"],a[href="#day2"]').forEach(a=>a.addEventListener('click',()=>{showDay(a.getAttribute('href').slice(1));save();}));
 showDay(state.day);if(!storageAvailable)notice.hidden=false;
+})();
+</script>
+<script id="trip-poll-script">
+(()=>{'use strict';
+const base='https://dvojmvuvcjmkvxsaerbk.supabase.co/rest/v1/';
+const headers={apikey:'sb_publishable_Au5x3mob5ZajXBRPhA35Ug_zPziw8c7','Content-Type':'application/json'};
+const names=['阿堂鹹粥','蜷尾家・甘味处散步甜食','度小月擔仔麵（中正旗艦店）','早安有喜（安平文平店）','文章牛肉湯'];
+const form=document.getElementById('poll-form'),message=document.getElementById('poll-message'),results=document.getElementById('poll-results'),submit=document.getElementById('poll-submit');
+const storageKey='tainan-trip-poll-v1';let state=null;
+try{state=JSON.parse(localStorage.getItem(storageKey));if(!state||!/^([0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})$/i.test(state.token)){state={token:crypto.randomUUID(),voted:false};}localStorage.setItem(storageKey,JSON.stringify(state));}catch(e){message.textContent='此瀏覽器無法儲存投票紀錄，請使用可儲存資料的瀏覽器投票。';submit.disabled=true;}
+function locked(){form.querySelectorAll('input[type=radio]').forEach(i=>{i.disabled=true;if(Number(i.value)===state.choice)i.checked=true;});submit.disabled=true;submit.textContent='已投票';}
+if(state&&state.voted){locked();message.textContent='你已完成投票，謝謝！';}
+async function load(){const response=await fetch(base+'rpc/trip_vote_counts',{method:'POST',headers,body:'{}'});if(!response.ok)throw Error('counts');const data=await response.json();const counts=names.map((_,i)=>Number(data.find(r=>Number(r.choice)===i+1)?.votes||0));const total=counts.reduce((a,b)=>a+b,0);results.replaceChildren();names.forEach((name,i)=>{const row=document.createElement('div');row.className='poll-result';const p=document.createElement('p');p.textContent=name+'：'+counts[i]+' 票';const bar=document.createElement('progress');bar.max=Math.max(total,1);bar.value=counts[i];bar.setAttribute('aria-label',name+'，'+counts[i]+' 票');row.append(p,bar);results.append(row);});}
+form.addEventListener('submit',async e=>{e.preventDefault();if(!state||state.voted)return;const chosen=form.querySelector('input:checked');const nickname=document.getElementById('poll-nickname').value.trim();if(!chosen||!nickname){message.textContent='請填暱稱並選一家店。';return;}submit.disabled=true;message.textContent='正在送出…';try{const response=await fetch(base+'trip_votes',{method:'POST',headers:{...headers,Prefer:'return=minimal'},body:JSON.stringify({voter_token:state.token,choice:Number(chosen.value),nickname})});if(!response.ok&&response.status!==409)throw Error('vote');state.voted=true;state.choice=response.status===409?null:Number(chosen.value);try{localStorage.setItem(storageKey,JSON.stringify(state));}catch(e){}locked();message.textContent=response.status===409?'這個瀏覽器已投過票。':'投票成功，謝謝！';try{await load();}catch(e){message.textContent+=' 票數暫時無法更新，請按「更新票數」。';}}catch(e){message.textContent='投票暫時無法送出，請稍後重試。';submit.disabled=false;}});
+document.getElementById('poll-refresh').addEventListener('click',async e=>{e.currentTarget.disabled=true;try{await load();}catch(err){message.textContent='無法讀取票數，請稍後重試。';}finally{e.target.disabled=false;}});
+load().catch(()=>{message.textContent='暫時無法讀取共同票數，請稍後按「更新票數」。';});
 })();
 </script>
 </body>
